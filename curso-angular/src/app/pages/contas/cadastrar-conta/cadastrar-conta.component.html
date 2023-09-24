@@ -1,0 +1,61 @@
+<div class="container mt-5 justify-content-center">
+
+  <div>
+    <h1>Nova Conta</h1>
+      <form [formGroup]="formGroup" class="example-form mt-4" (ngSubmit)="cadastrarNovaConta()">
+
+
+        <small class="text-danger mb-2" *ngIf="formGroup.get('numero')?.errors && formGroup.get('numero')?.hasError('required')">
+          Campo Obrigatório
+        </small>
+
+        <mat-form-field class="example-full-width">
+
+          <mat-label>Número Conta</mat-label>
+          <input matInput formControlName="numero">
+
+        </mat-form-field>
+
+        <small class="text-danger mb-2" *ngIf="formGroup.get('agencia')?.errors && formGroup.get('agencia')?.hasError('required')">
+          Campo Obrigatório
+        </small>
+
+        <mat-form-field class="example-full-width">
+
+          <mat-label>Número Agência</mat-label>
+          <input matInput formControlName="agencia">
+
+        </mat-form-field>
+
+        <small class="text-danger mb-2" *ngIf="formGroup.get('saldo')?.errors && formGroup.get('saldo')?.hasError('required')">
+          Campo Obrigatório
+        </small>
+
+        <mat-form-field class="example-full-width">
+
+          <mat-label>Saldo</mat-label>
+          <input matInput formControlName="saldo">
+
+        </mat-form-field>
+
+        <small class="text-danger mb-2" *ngIf="formGroup.get('cliente')?.errors && formGroup.get('cliente')?.hasError('required')">
+          Campo Obrigatório
+        </small>
+
+        <mat-form-field class="example-full-width">
+
+          <mat-label>Cliente</mat-label>
+          <input matInput formControlName="cliente">
+
+        </mat-form-field>
+
+        <div class="d-flex justify-content-center">
+          <button [disabled]="!formGroup.valid" type="submit" mat-raised-button color="primary" >
+            Cadastrar
+          </button>
+        </div>
+      </form>
+  </div>
+
+</div>
+
