@@ -3,5 +3,6 @@ export interface Conta{
   numero: string,
   agencia: string,
   saldo: number,
-  cliente: number
+  cliente: number,
+  nomeCliente: string
 }

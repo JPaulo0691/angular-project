@@ -7,11 +7,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { CadastrarContaComponent } from './cadastrar-conta/cadastrar-conta.component';
 import { ListarContasComponent } from './listar-contas/listar-contas.component';
+import { DepositoComponent } from './deposito/deposito.component';
+import { SaqueComponent } from './saque/saque.component';
+import { TransferenciaComponent } from './transferencia/transferencia.component';
 
 @NgModule({
   declarations: [
     CadastrarContaComponent,
-    ListarContasComponent
+    ListarContasComponent,
+    DepositoComponent,
+    SaqueComponent,
+    TransferenciaComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +32,10 @@ import { ListarContasComponent } from './listar-contas/listar-contas.component';
   providers: [],
   exports: [
     CadastrarContaComponent,
-    ListarContasComponent
+    ListarContasComponent,
+    DepositoComponent,
+    SaqueComponent,
+    TransferenciaComponent
   ]
 })
 export class ContasModule { }

@@ -10,8 +10,6 @@ import { MaterialModule } from './shared/material/material.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ClientesModule } from './pages/clientes/clientes.module';
 import { CommonModule } from '@angular/common';
-import { CadastrarContaComponent } from './pages/contas/cadastrar-conta/cadastrar-conta.component';
-import { ListarContasComponent } from './pages/contas/listar-contas/listar-contas.component';
 import { ContasModule } from './pages/contas/contas.module';
 
 @NgModule({

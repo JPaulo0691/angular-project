@@ -23,7 +23,7 @@ export class ListarContasComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private contaService: ContaService){}
+  constructor(private contaService: ContaService, private clienteService: ClientesService){}
 
   ngAfterViewInit(): void {
     this.listarContas(1,5);
@@ -38,8 +38,21 @@ export class ListarContasComponent implements AfterViewInit {
   }
 
   listarContas(page: number, pageSize:number){
-      return this.contaService.listar_paginado(page,pageSize).subscribe(lista => {
-          this.dataSource.data = lista;
+      return this.contaService.listar_paginado(page,pageSize).subscribe(listaConta => {
+
+        this.clienteService.listar().subscribe(clientes => {
+           const contasFormatada = listaConta.map(
+            conta => {
+              const cliente = clientes.find(cliente => cliente.id === conta.cliente);
+
+              if(cliente){
+                conta.nomeCliente = cliente.nome;
+              }
+              return conta;
+
+            });
+            this.dataSource.data = contasFormatada;
+        })
 
       })
   }

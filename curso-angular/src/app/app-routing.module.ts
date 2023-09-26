@@ -4,6 +4,9 @@ import { ListagemUsuarioComponent } from './pages/clientes/listagem-usuario/list
 import { CadastroClienteComponent } from './pages/clientes/cadastro-cliente/cadastro-cliente.component';
 import { ListarContasComponent } from './pages/contas/listar-contas/listar-contas.component';
 import { CadastrarContaComponent } from './pages/contas/cadastrar-conta/cadastrar-conta.component';
+import { SaqueComponent } from './pages/contas/saque/saque.component';
+import { TransferenciaComponent } from './pages/contas/transferencia/transferencia.component';
+import { DepositoComponent } from './pages/contas/deposito/deposito.component';
 
 const routes: Routes = [
 
@@ -36,6 +39,18 @@ const routes: Routes = [
       {
         path: 'atualizarConta/:id',
         component: CadastrarContaComponent
+      },
+      {
+        path: 'deposito',
+        component: DepositoComponent
+      },
+      {
+        path: 'saque',
+        component: SaqueComponent
+      },
+      {
+        path: 'transferencia',
+        component: TransferenciaComponent
       },
       {
         path: '',

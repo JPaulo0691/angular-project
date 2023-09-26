@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
 
-    <span>My Bank</span>
+    <span>JP Bank</span>
     <span class="ms-auto"></span>
-    <p>Clientes</p>
-    <p>Contas</p>
-    <p>Depósito</p>
-    <p>Saque</p>
-    <p>Transferência</p>
+    <p [routerLink]=" 'clientes/' " style="cursor: pointer;">Clientes</p>
+    <p [routerLink]=" 'conta/' "  style="cursor: pointer;">Contas</p>
+    <p [routerLink]=" 'conta/deposito' "  style="cursor: pointer;">Depósito</p>
+    <p [routerLink]=" 'conta/saque' "  style="cursor: pointer;">Saque</p>
+    <p [routerLink]=" 'conta/transferencia' " style="cursor: pointer;">Transferência</p>
 </mat-toolbar>
