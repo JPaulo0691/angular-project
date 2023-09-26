@@ -42,10 +42,15 @@
           Campo Obrigatório
         </small>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
 
           <mat-label>Cliente</mat-label>
-          <input matInput formControlName="cliente">
+
+          <mat-select formControlName = "cliente">
+            <mat-option *ngFor="let client of nome" [value]="client.id">
+              {{client.nome}}
+            </mat-option>
+          </mat-select>
 
         </mat-form-field>
 

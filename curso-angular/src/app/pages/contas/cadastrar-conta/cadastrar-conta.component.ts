@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/shared/models/cliente';
 import { Conta } from 'src/app/shared/models/conta';
+import { ClientesService } from 'src/app/shared/services/clientes.service';
 import { ContaService } from 'src/app/shared/services/conta.service';
 import Swal from 'sweetalert2';
 
@@ -14,8 +16,9 @@ export class CadastrarContaComponent implements OnInit{
 
   editar;
   formGroup: FormGroup;
+  nome: Cliente[] = [];
 
-  constructor(private contaService: ContaService, private router: Router, private route: ActivatedRoute){
+  constructor(private contaService: ContaService, private router: Router, private route: ActivatedRoute, private clienteService: ClientesService){
 
     console.log('Antes de criar o form')
 
@@ -42,6 +45,10 @@ export class CadastrarContaComponent implements OnInit{
         return this.formGroup.patchValue(conta)
       })
     }
+
+    this.clienteService.listar().subscribe(element =>{
+      this.nome = element;
+    })
 
     console.log('Passou do IF........')
 

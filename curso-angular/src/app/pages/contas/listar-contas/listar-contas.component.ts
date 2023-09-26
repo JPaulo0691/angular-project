@@ -3,7 +3,10 @@ import { FormGroup, Validators } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Conta } from 'src/app/shared/models/conta';
+import { Observable, map } from 'rxjs';
+import { Cliente } from 'src/app/shared/models/cliente';
+import { Conta} from 'src/app/shared/models/conta';
+import { ClientesService } from 'src/app/shared/services/clientes.service';
 import { ContaService } from 'src/app/shared/services/conta.service';
 import Swal from 'sweetalert2';
 
@@ -16,7 +19,7 @@ import Swal from 'sweetalert2';
 export class ListarContasComponent implements AfterViewInit {
 
   displayColumns: string[] = ['id', 'numero', 'agencia','saldo','cliente', 'funcoes'];
-  dataSource = new MatTableDataSource<Conta>
+  dataSource = new MatTableDataSource<Conta>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -24,6 +27,7 @@ export class ListarContasComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.listarContas(1,5);
+
   }
 
   onPageChange(event: PageEvent){
@@ -34,8 +38,9 @@ export class ListarContasComponent implements AfterViewInit {
   }
 
   listarContas(page: number, pageSize:number){
-      return this.contaService.listar_paginado(page,pageSize).subscribe(listar => {
-        this.dataSource.data = listar;
+      return this.contaService.listar_paginado(page,pageSize).subscribe(lista => {
+          this.dataSource.data = lista;
+
       })
   }
 
